@@ -1,0 +1,16 @@
+/RentHub/.angular
+/RentHub/.vscode
+/RentHub/dist
+/RentHub/tmp
+/RentHub/out-tsc
+/RentHub/bazel-out
+RentHub/src/environments
+
+# Node
+/RentHub/node_modules
+/RentHub/npm-debug.log
+/RentHub/yarn-error.log
+
+/RentHubBackend/.vs
+/RentHubBackend/RentHubBackend/bin
+/RentHubBackend/RentHubBackend/obj
