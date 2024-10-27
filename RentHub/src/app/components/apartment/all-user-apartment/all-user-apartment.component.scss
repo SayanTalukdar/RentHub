@@ -62,7 +62,7 @@
   padding: 0.5rem;
 }
 
-.view-btn, .favorite-btn {
+.view-btn, .del-btn {
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
   border: none;
@@ -78,6 +78,11 @@
 
 .view-btn:hover {
   background-color: #4a8ddb;
+}
+
+.del-btn {
+  background-color: #ff4747;
+  color: #fff;
 }
 
 .favorite-btn {

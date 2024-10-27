@@ -46,4 +46,17 @@ export class AllUserApartmentComponent implements OnInit {
       return "No Receipt";
     }
   }
+
+  deletePost(id: number){
+    this.apartmentService.deleteData(id).subscribe(
+      (res: any) =>{
+        if(res.message == "Deleted"){
+          window.location.reload();
+        }
+      }, 
+      (err: any) => {
+        console.log(err)
+      }
+    )
+  }
 }
