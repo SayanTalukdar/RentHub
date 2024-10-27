@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentHubBackend.Context;
 
 namespace RentHubBackend.Migrations
 {
     [DbContext(typeof(RentHubBackendContext))]
-    partial class RentHubBackendContextModelSnapshot : ModelSnapshot
+    [Migration("20241026144517_model updated apartment")]
+    partial class modelupdatedapartment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,7 +192,10 @@ namespace RentHubBackend.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ExpectedRent")
+                    b.Property<string>("ExpectedRent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IsFavourited")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsFurnished")

@@ -25,7 +25,7 @@ namespace RentHubBackend.Models
 
         public string StayType { get; set; }
 
-        public string ExpectedRent { get; set; }
+        public int ExpectedRent { get; set; }
 
         public bool IsNegotiable { get; set; }
 
@@ -39,7 +39,9 @@ namespace RentHubBackend.Models
 
         public string Contact { get; set; }
 
-        public int IsFavourited { get; set; }
+        public List<string> Amenities { get; set; } = new List<string>();
+
+        public ICollection<CommentsModel> Comments { get; set; }
 
         public string? ApartmentImagePath { get; set; }
 

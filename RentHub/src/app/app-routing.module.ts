@@ -8,6 +8,7 @@ import { EditApartmentComponent } from './components/apartment/edit-apartment/ed
 import { AllApartmentComponent } from './components/apartment/all-apartment/all-apartment.component';
 import { ViewApartmentComponent } from './components/apartment/view-apartment/view-apartment.component';
 import { AuthGuard } from "./service/auth-guard.guard"
+import { AllUserApartmentComponent } from './components/apartment/all-user-apartment/all-user-apartment.component';
 
 const routes: Routes = [
   {
@@ -23,23 +24,27 @@ const routes: Routes = [
     component: NewUserComponent
   },
   {
+    path: "apartment/all",
+    component: AllApartmentComponent,
+  },
+  {
     path: "apartment/create-post",
     component: NewApartmentComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
-    path: "apartment/apartment/edit-post",
+    path: "apartment/edit-post/:id",
     component: EditApartmentComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
-    path: "apartment/post-details",
+    path: "apartment/post-details/:id",
     component: ViewApartmentComponent
   },
   {
-    path: "user/your-posts",
-    component: AllApartmentComponent,
-    canActivate: [AuthGuard]
+    path: "user/your-posts/:userid",
+    component: AllUserApartmentComponent,
+    // canActivate: [AuthGuard]
   },
   {
     path: "**",

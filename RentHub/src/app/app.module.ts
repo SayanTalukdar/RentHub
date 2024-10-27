@@ -15,6 +15,8 @@ import { ApartmentService } from './service/apartment/apartment.service';
 import { UserService } from './service/user/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './core/navbar/navbar.component';
+import { UploadComponent } from './components/apartment/new-apartment/upload/upload.component';
+import { AllUserApartmentComponent } from './components/apartment/all-user-apartment/all-user-apartment.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { NavbarComponent } from './core/navbar/navbar.component';
     AllApartmentComponent,
     NewUserComponent,
     LoginUserComponent,
-    NavbarComponent
+    NavbarComponent,
+    UploadComponent,
+    AllUserApartmentComponent
   ],
   imports: [
     BrowserModule,

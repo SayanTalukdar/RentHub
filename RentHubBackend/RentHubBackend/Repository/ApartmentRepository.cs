@@ -40,10 +40,11 @@ namespace RentHubBackend.Repository
                 Descp = dataModel.Descp,
                 CreatedBy = dataModel.CreatedBy,
                 Contact = dataModel.Contact,
-                IsFavourited = dataModel.IsFavourited,
                 ApartmentImagePath = dataModel.ApartmentImagePath,
                 CreatedAt = dataModel.CreatedAt,
-            
+                Amenities = dataModel.Amenities,
+                Comments = dataModel.Comments
+
             };
             Context.ApartmentModel.Add(data);
             var result = await Context.SaveChangesAsync();

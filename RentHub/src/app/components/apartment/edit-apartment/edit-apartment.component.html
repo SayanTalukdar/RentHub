@@ -1,1 +1,85 @@
-<p>edit-apartment works!</p>
+<div class="form-container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <h2>Edit Apartment Details</h2>
+
+        <div class="form-group">
+            <label for="apartName">Apartment Name</label>
+            <input id="apartName" formControlName="apartName" type="text" placeholder="Enter apartment name" required>
+        </div>
+
+        <div class="form-group-checkbox">
+            <label for="isShared">Is Shared</label>
+            <input id="isShared" formControlName="isShared" type="checkbox">
+        </div>
+
+        <div class="form-group">
+            <label for="apartLocation">Location</label>
+            <input id="apartLocation" formControlName="apartLocation" type="text" placeholder="Enter location" required>
+        </div>
+
+        <div class="form-group">
+            <label for="apartDetails">Details</label>
+            <textarea id="apartDetails" formControlName="apartDetails" placeholder="Describe the apartment"></textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <label for="stayType">Stay Type</label>
+                <select id="stayType" formControlName="stayType" required>
+                    <option value="" disabled selected>Select stay type</option>
+                    <option *ngFor="let option of stayTypeOptions" [value]="option.value">
+                        {{ option.label }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="expectedRent">Expected Rent</label>
+            <input id="expectedRent" formControlName="expectedRent" type="number" placeholder="Enter expected rent"
+                required>
+        </div>
+
+        <div class="form-group-checkbox">
+            <label for="isNegotiable">Is Negotiable</label>
+            <input id="isNegotiable" formControlName="isNegotiable" type="checkbox">
+        </div>
+
+        <div class="form-group-checkbox">
+            <label for="isFurnished">Is Furnished</label>
+            <input id="isFurnished" formControlName="isFurnished" type="checkbox">
+        </div>
+
+        <div class="form-group">
+            <label for="descpTitle">Description Title</label>
+            <input id="descpTitle" formControlName="descpTitle" type="text" placeholder="Enter title for description"
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="descp">Description</label>
+            <textarea id="descp" formControlName="descp" placeholder="Provide a detailed description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="createdBy">Created By</label>
+            <input id="createdBy" formControlName="createdBy" type="text" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input id="contact" formControlName="contact" type="text" placeholder="Enter contact details" required>
+        </div>
+
+        <div class="form-group">
+            <label>Amenities</label>
+            <div class="amenities-options">
+                <div *ngFor="let amenity of amenitiesOptions" class="checkbox">
+                    <input type="checkbox" [value]="amenity" (change)="onAmenityChange($event)">
+                    <span>{{ amenity }}</span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" [disabled]="editForm.invalid" class="submit-btn">Submit</button>
+    </form>
+</div>

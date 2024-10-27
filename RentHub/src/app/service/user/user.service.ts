@@ -21,15 +21,15 @@ export class UserService {
   }
 
   loginUser(userData : any) {
+    console.log(userData)
     const data: any = {
       email: userData.email,
       password: userData.password
     }
-    return this.http.post(`${this.baseUrl}UserModel/signup`,data);
+    return this.http.post(`${this.baseUrl}UserModel/signin`,data);
   }
 
   setData(data: Array<String>) {
-    //console.log(data)
     localStorage.setItem("data", JSON.stringify(data));
   }
 
@@ -43,5 +43,13 @@ export class UserService {
     } else {
       return false;
     }
+  }
+
+    getUserId(): string{
+    return JSON.parse(localStorage.getItem("data") || '').userId;
+  }
+
+  getEmail(): string {
+    return JSON.parse(localStorage.getItem("data") || '').email;
   }
 }

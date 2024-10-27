@@ -25,13 +25,12 @@ export class LoginUserComponent {
   loginSubmit() {
     const { email, password } = this.loginForm.value;
     this.userService.loginUser({email, password }).subscribe((res: any) => {
-
-      if (JSON.parse(res).message == "Failure") {
+      if (res.message == "Failure") {
         this.isUserValid = false;
         alert("Login Unsuccessfull, Enter corect Credentials.!")
-      } else if (JSON.parse(res).message == "Success") {
+      } else if (res.message == "Success") {
         this.isUserValid = true;
-        this.userService.setData(JSON.parse(res));
+        this.userService.setData(res);
         this.router.navigate(["/"])
       }
     });

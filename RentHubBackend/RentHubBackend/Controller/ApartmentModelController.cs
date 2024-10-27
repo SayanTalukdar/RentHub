@@ -29,7 +29,6 @@ namespace RentHubBackend.Controller
         }
 
         // GET: api/ApartmentModels
-        [Authorize]
         [HttpGet("alldata")]
         public async Task<ActionResult<IEnumerable<ApartmentModel>>> GetApartmentModel()
         {
