@@ -21,7 +21,6 @@ export class UserService {
   }
 
   loginUser(userData : any) {
-    console.log(userData)
     const data: any = {
       email: userData.email,
       password: userData.password

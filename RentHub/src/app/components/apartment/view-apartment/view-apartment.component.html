@@ -1,1 +1,90 @@
-<p>view-apartment works!</p>
+<!-- <div class="apartment-details-container">
+  
+
+  
+</div> -->
+
+<div class="row m-auto" id="form">
+  <div class="col-8 ">
+    <div class="flex-item d-flex justify-content-center ">
+
+      <div class="container p-2 bd-highlight">
+        <br>
+        <div class="apartment-card">
+          <h2>{{ apartment.apartName }}</h2>
+
+          <!-- Basic Information -->
+          <div class="info-section">
+            <h3>Basic Information</h3>
+            <p><strong>Location:</strong> {{ apartment.apartLocation }}</p>
+            <p><strong>Stay Type:</strong> {{ apartment.stayType }}</p>
+            <p><strong>Expected Rent:</strong> {{ apartment.expectedRent }} INR </p>
+            <p><strong>Furnished:</strong> {{ apartment.isFurnished ? 'Yes' : 'No' }}</p>
+            <p><strong>Shared:</strong> {{ apartment.isShared ? 'Yes' : 'No' }}</p>
+            <p><strong>Negotiable:</strong> {{ apartment.isNegotiable ? 'Yes' : 'No' }}</p>
+          </div>
+
+          <!-- Image Gallery -->
+          <div class="info-section" *ngIf="apartment.apartmentImagePath?.length">
+            <h3>Apartment Images</h3>
+            <div class="image-gallery">
+              <!-- <img *ngFor="let image of apartment.apartmentImagePath.slice(0, 3)" [src]="ImagePath(image)"
+                  alt="Apartment image"> -->
+              <img [src]="ImagePath(apartment.apartmentImagePath)"
+                (click)="LoadImg(ImagePath(apartment.apartmentImagePath))" alt="Apartment image">
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="info-section">
+            <h3>Description</h3>
+            <h4>{{ apartment.descpTitle }}</h4>
+            <p>{{ apartment.descp }}</p>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="info-section">
+            <h3>Contact Information</h3>
+            <p><strong>Created By:</strong> {{ apartment.createdBy }}</p>
+            <p><strong>Contact:</strong> {{ apartment.contact }}</p>
+          </div>
+
+          <!-- Amenities -->
+          <div class="info-section amenities">
+            <h3>Amenities</h3>
+            <ul>
+              <li *ngFor="let amenity of apartment.amenities">{{ amenity }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-4 ">
+    <div class="flex-item d-flex justify-content-center ">
+      <div class="container p-2 bd-highlight">
+        <br>
+        <button (click)="back()" class="btn btn-outline-danger">Back</button>
+        <div class="comment-section">
+          <h3>Comments</h3>
+          <!-- <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="comment-form">
+          <input formControlName="author" placeholder="Your Name" required>
+          <textarea formControlName="content" placeholder="Write your comment..." required></textarea>
+          <button type="submit" [disabled]="commentForm.invalid">Add Comment</button>
+        </form> -->
+
+          <div class="comment-list">
+            <div class="comment">
+              <strong>wertyuiu</strong>
+              <p>asdfghjk</p>
+            </div>
+          </div>
+          <!-- <p *ngIf="comments.length === 0">No comments yet.</p> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

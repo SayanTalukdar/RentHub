@@ -1,0 +1,95 @@
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 10px 5px 5px rgb(85, 80, 80);
+  border: 1px solid black;
+}
+
+.apartment-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.apartment-card:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.apartment-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.apartment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.apartment-info {
+  padding: 0.5rem;
+}
+
+.apartment-info h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: #333;
+}
+
+.location, .rent, .furnished-status {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.rent {
+  font-weight: bold;
+  color: #5c9cff;
+}
+
+.apartment-actions {
+  display: flex;
+  gap: 8px;
+  padding: 0.5rem;
+}
+
+.view-btn, .favorite-btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.view-btn {
+  background-color: #5c9cff;
+  color: #fff;
+}
+
+.view-btn:hover {
+  background-color: #4a8ddb;
+}
+
+.favorite-btn {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+
+.favorite-btn:hover {
+  background-color: #e55d5d;
+}
+
+.no-post{
+  display: flex;
+  margin: auto;
+}

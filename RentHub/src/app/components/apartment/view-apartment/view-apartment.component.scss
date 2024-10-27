@@ -1,0 +1,131 @@
+#form{
+  width: 1110px;
+  box-shadow: 5px 5px 10px grey;
+}
+.apartment-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.info-section {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.info-section h3 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.info-section p,
+.info-section ul {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+.amenities li {
+  list-style-type: disc;
+  margin-left: 1rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.image-gallery {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-gallery img {
+  width: 100%;
+  max-width: calc(33.33% - 0.67rem);
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .image-gallery img {
+    max-width: 100%;
+  }
+}
+
+/* src/app/components/view-details/view-details.component.css */
+
+.comment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.comment-form input, .comment-form textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.comment-form button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #5c9cff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.comment-list {
+  margin-top: 1.5rem;
+}
+
+.comment {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.comment strong {
+  font-size: 1rem;
+  color: #333;
+}
+

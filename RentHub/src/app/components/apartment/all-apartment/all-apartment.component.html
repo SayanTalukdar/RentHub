@@ -1,1 +1,27 @@
-<p>all-apartment works!</p>
+<div class="item-container">
+  <ng-container *ngIf="apartData.length != 0">
+    <div *ngFor="let item of apartData" class="apartment-card">
+      <!-- Apartment Image -->
+      <div class="apartment-image">
+        <img [src]="ImagePath(item.apartmentImagePath)" alt="{{ item.apartName }}" />
+      </div>
+      
+      <!-- Apartment Info -->
+      <div class="apartment-info">
+        <h3>{{ item.apartName }}</h3>
+        <p class="location">{{ item.apartLocation }}</p>
+        <p class="rent">Rent: {{ item.expectedRent }} INR</p>
+        <p class="furnished-status">{{ item.isFurnished ? 'Furnished' : 'Unfurnished' }}</p>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="apartment-actions">
+        <button (click)="viewDetails(item.id)" class="view-btn">View</button>
+        <!-- <button (click)="markAsFavorite(item.id)" class="favorite-btn">Favorite</button> -->
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="apartData.length == 0">
+    <span class="no-post"><p><strong><u>No Apartment Found</u></strong></p></span>
+  </ng-container>
+</div>

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewApartmentComponent } from './components/apartment/new-apartment/new-apartment.component';
-import { HomeComponent } from './components/apartment/home/home.component';
 import { ViewApartmentComponent } from './components/apartment/view-apartment/view-apartment.component';
 import { EditApartmentComponent } from './components/apartment/edit-apartment/edit-apartment.component';
 import { AllApartmentComponent } from './components/apartment/all-apartment/all-apartment.component';
@@ -22,7 +21,6 @@ import { AllUserApartmentComponent } from './components/apartment/all-user-apart
   declarations: [
     AppComponent,
     NewApartmentComponent,
-    HomeComponent,
     ViewApartmentComponent,
     EditApartmentComponent,
     AllApartmentComponent,

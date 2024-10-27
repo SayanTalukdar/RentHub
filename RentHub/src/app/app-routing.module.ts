@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/apartment/home/home.component';
 import { LoginUserComponent } from './components/users/login-user/login-user.component';
 import { NewUserComponent } from './components/users/new-user/new-user.component';
 import { NewApartmentComponent } from './components/apartment/new-apartment/new-apartment.component';
@@ -13,7 +12,7 @@ import { AllUserApartmentComponent } from './components/apartment/all-user-apart
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent
+    component: AllApartmentComponent
   },
   {
     path: "user/login",
@@ -24,27 +23,23 @@ const routes: Routes = [
     component: NewUserComponent
   },
   {
-    path: "apartment/all",
-    component: AllApartmentComponent,
-  },
-  {
     path: "apartment/create-post",
     component: NewApartmentComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: "apartment/edit-post/:id",
     component: EditApartmentComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: "apartment/post-details/:id",
     component: ViewApartmentComponent
   },
   {
-    path: "user/your-posts/:userid",
+    path: "user/your-posts",
     component: AllUserApartmentComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: "**",

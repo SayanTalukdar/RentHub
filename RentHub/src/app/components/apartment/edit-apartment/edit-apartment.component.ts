@@ -126,4 +126,8 @@ export class EditApartmentComponent implements OnInit {
       }
     })
   }
+
+  back(){
+    this.routerService.navigate(['/user/your-posts']);
+  }
 }

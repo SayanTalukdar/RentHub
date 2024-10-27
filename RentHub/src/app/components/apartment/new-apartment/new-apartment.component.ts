@@ -73,4 +73,8 @@ export class NewApartmentComponent {
       }
     )
   }
+
+  back(){
+    this.router.navigate(['/user/your-posts']);
+  }
 }
