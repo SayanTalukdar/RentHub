@@ -21,5 +21,11 @@ namespace RentHubBackend.Services
             var res = Context.Users.FirstOrDefault(x => x.UserName == email);
             return res.Id;
         }
+
+        public string GetUserName(string email)
+        {
+            var res = Context.Users.FirstOrDefault(x => x.UserName == email);
+            return res.FullName;
+        }
     }
 }

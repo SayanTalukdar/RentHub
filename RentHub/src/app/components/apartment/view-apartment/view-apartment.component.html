@@ -42,13 +42,6 @@
             <p>{{ apartment.descp }}</p>
           </div>
 
-          <!-- Contact Information -->
-          <div class="info-section">
-            <h3>Contact Information</h3>
-            <p><strong>Created By:</strong> {{ apartment.createdBy }}</p>
-            <p><strong>Contact:</strong> {{ apartment.contact }}</p>
-          </div>
-
           <!-- Amenities -->
           <div class="info-section amenities">
             <h3>Amenities</h3>
@@ -66,25 +59,51 @@
     <div class="flex-item d-flex justify-content-center ">
       <div class="container p-2 bd-highlight">
         <br>
+        <button type="button" class="btn btn-outline-info mr-2" data-toggle="modal" data-target="#enquiryModal">
+          Enquiry
+        </button>
         <button (click)="back()" class="btn btn-outline-danger">Back</button>
+        <br>
+        <button *ngIf="!isAuthenticated" [routerLink]="['/user/login']" class=" ml-2 btn btn-outline-info">Login to comment</button>
         <div class="comment-section">
           <h3>Comments</h3>
-          <!-- <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="comment-form">
-          <input formControlName="author" placeholder="Your Name" required>
-          <textarea formControlName="content" placeholder="Write your comment..." required></textarea>
-          <button type="submit" [disabled]="commentForm.invalid">Add Comment</button>
-        </form> -->
+          <ng-container *ngIf="isAuthenticated">
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="comment-form">
+              <textarea formControlName="comment" placeholder="Write your comment..." required></textarea>
+              <button type="submit" [disabled]="commentForm.invalid">Add Comment</button>
+            </form>
+          </ng-container>
 
-          <div class="comment-list">
-            <div class="comment">
-              <strong>wertyuiu</strong>
-              <p>asdfghjk</p>
+          <div *ngIf="comments.length > 0" class="comment-list">
+            <div *ngFor="let comment of comments" class="comment">
+              <strong>{{ comment.name }} - </strong> <span class="timestamp">{{ comment.date | date:'short'
+                }}</span>
+              <p>{{ comment.commentMade }}</p>
             </div>
           </div>
-          <!-- <p *ngIf="comments.length === 0">No comments yet.</p> -->
+          <p *ngIf="comments.length === 0">No comments yet.</p>
         </div>
       </div>
     </div>
 
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="enquiryModalLabel">Enquiry about apartment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Onwer Name</strong> : {{apartment.createdBy}}</p>
+        <p><strong>Contact Number</strong> : {{apartment.contact}}</p>
+        <p><strong>Email</strong> : {{apartment.email}}</p>
+      </div>
+    </div>
   </div>
 </div>

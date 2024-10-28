@@ -44,7 +44,6 @@ namespace RentHubBackend.Controller
         }
 
         // GET: api/ApartmentModels/:id
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<ApartmentModel>> GetApartmentModel(int id)
         {

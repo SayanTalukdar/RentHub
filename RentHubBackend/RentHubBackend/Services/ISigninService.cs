@@ -8,5 +8,6 @@ namespace RentHubBackend.Services
     public interface ISigninService
     {
         string GetUserId(string email);
+        string GetUserName(string email);
     }
 }

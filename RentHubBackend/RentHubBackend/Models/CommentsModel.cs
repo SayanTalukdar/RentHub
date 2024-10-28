@@ -11,11 +11,12 @@ namespace RentHubBackend.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
         public string UserId { get; set; }
 
         [Required]
         public string Email { get; set; }
+
+        public string Name { get; set; }
 
         [Required]
         public int ApartmentId { get; set; }

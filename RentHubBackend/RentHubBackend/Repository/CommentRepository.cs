@@ -26,6 +26,7 @@ namespace RentHubBackend.Repository
             {
                 UserId = SigninService.GetUserId(commentModel.Email),
                 Email = commentModel.Email,
+                Name = SigninService.GetUserName(commentModel.Email),
                 ApartmentId = commentModel.ApartmentId,
                 CommentMade = commentModel.CommentMade,
                 Date = DateTime.Now

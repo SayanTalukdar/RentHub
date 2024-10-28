@@ -17,10 +17,9 @@ export class AllApartmentComponent implements OnInit {
       if (res.length) {
         this.apartData = res;
       }
-    }),
-      (err: any) => {
-        console.log(err)
-      }
+    }, (err: any) => {
+      console.log(err)
+    })
   }
 
   constructor(private apartmentService: ApartmentService,

@@ -57,7 +57,7 @@ export class ApartmentService {
       createdBy: apartData.createdBy,
       contact: apartData.contact,
       amenities: apartData.amenities,
-      createdAt: new Date || 'short',
+      createdAt: new Date,
       apartmentImagePath: imgPath.dbPath || null
     }
     return this.http.post(`${this.baseUrl}ApartmentModel/create`, data, options)
@@ -68,18 +68,7 @@ export class ApartmentService {
   }
 
   getDataById(id: number) {
-    var token = "Bearer " + JSON.parse(localStorage.getItem("data") || '').token;
-
-    var header = new HttpHeaders({
-      "ContentType": "application/json",
-      "Authorization": token,
-      "ResponseType": "text"
-    });
-
-    const options = {
-      headers: header
-    }
-    return this.http.get(`${this.baseUrl}ApartmentModel/${id}`, options);
+    return this.http.get(`${this.baseUrl}ApartmentModel/${id}`);
   }
 
   updateDataById(id: number, data: any) {
