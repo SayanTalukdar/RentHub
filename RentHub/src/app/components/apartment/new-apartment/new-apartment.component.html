@@ -18,7 +18,8 @@
                         </div>
 
                         <div class="form-group-checkbox">
-                            <label for="isShared">Is the apartment shared <input id="isShared" formControlName="isShared" type="checkbox"></label>
+                            <label for="isShared">Is the apartment shared <input id="isShared"
+                                    formControlName="isShared" type="checkbox"></label>
                         </div>
 
                         <div class="form-group">
@@ -52,11 +53,13 @@
                         </div>
 
                         <div class="form-group-checkbox">
-                            <label for="isNegotiable">Is  the apartment rent negotiable <input id="isNegotiable" formControlName="isNegotiable" type="checkbox"></label>    
+                            <label for="isNegotiable">Is the apartment rent negotiable <input id="isNegotiable"
+                                    formControlName="isNegotiable" type="checkbox"></label>
                         </div>
 
                         <div class="form-group-checkbox">
-                            <label for="isFurnished">Is  the apartment  furnished <input id="isFurnished" formControlName="isFurnished" type="checkbox"></label>
+                            <label for="isFurnished">Is the apartment furnished <input id="isFurnished"
+                                    formControlName="isFurnished" type="checkbox"></label>
                         </div>
 
                         <div class="form-group">
@@ -99,9 +102,37 @@
             </div>
         </div>
     </div>
-    
+
     <div class="col-2">
         <button (click)="back()" class="btn btn-outline-danger">Back</button>
     </div>
 
+</div>
+
+<div class="modal fade" tabindex="-1" bsModal #modal="bs-modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Preview And Submit</h5>
+            </div>
+            <div class="modal-body">
+                <p><strong>Apartment Name:</strong> {{ apartmentForm.value.apartName }}</p>
+                <p><strong>Apartment Location:</strong> {{ apartmentForm.value.apartLocation }}</p>
+                <p><strong>Apartment Details:</strong> {{ apartmentForm.value.apartDetails }}</p>
+                <p><strong>Stay Type:</strong> {{ apartmentForm.value.stayType }}</p>
+                <p><strong>Expected Rent:</strong> {{ apartmentForm.value.expectedRent }} INR </p>
+                <p><strong>Furnished:</strong> {{ apartmentForm.value.isFurnished ? 'Yes' : 'No' }}</p>
+                <p><strong>Shared:</strong> {{ apartmentForm.value.isShared ? 'Yes' : 'No' }}</p>
+                <p><strong>Negotiable:</strong> {{ apartmentForm.value.isNegotiable ? 'Yes' : 'No' }}</p>
+                <p><strong>Description Title:</strong> {{ apartmentForm.value.descpTitle }}</p>
+                <p><strong>Description:</strong> {{ apartmentForm.value.descp }}</p>
+                <p><strong>Created By:</strong> {{ apartmentForm.value.createdBy }}</p>
+                <p><strong>Contact:</strong> {{ apartmentForm.value.contact }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="createData()">Submit</button>
+                <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

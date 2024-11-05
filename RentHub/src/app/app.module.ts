@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { AppComponent } from './app.component';
 import { NewApartmentComponent } from './components/apartment/new-apartment/new-apartment.component';
 import { ViewApartmentComponent } from './components/apartment/view-apartment/view-apartment.component';
@@ -18,6 +19,7 @@ import { UploadComponent } from './components/apartment/new-apartment/upload/upl
 import { AllUserApartmentComponent } from './components/apartment/all-user-apartment/all-user-apartment.component';
 import { CommentsService } from './service/apartment/comments.service';
 import { FavouriteService } from './service/user/favourite.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { FavouriteService } from './service/user/favourite.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ModalModule.forRoot()
   ],
   providers: [
     ApartmentService,

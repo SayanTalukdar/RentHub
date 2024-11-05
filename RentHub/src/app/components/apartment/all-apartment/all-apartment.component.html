@@ -1,3 +1,17 @@
+<div class="sorting-options">
+  <label for="sortBy">Sort by:</label>
+  <select id="sortBy" (change)="onSortChange($event)">
+    
+    <option value="none">Relevant</option>
+    <option value="nameAsc">Name: A to Z</option>
+    <option value="nameDesc">Name: Z to A</option>
+    <option value="rentAsc">Rent: Low to High</option>
+    <option value="rentDesc">Rent: High to Low</option>
+    <option value="locationAsc">Location: A to Z</option>
+    <option value="locationDesc">Location: Z to A</option>
+  </select>
+</div>
+
 <div class="item-container">
   <ng-container *ngIf="apartData.length != 0">
     <div *ngFor="let item of apartData" class="apartment-card">

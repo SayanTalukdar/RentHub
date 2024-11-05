@@ -88,3 +88,35 @@
 .favorite-btn:hover {
   background-color: #e55d5d;
 }
+
+.sorting-options {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.sorting-options label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.sorting-options select {
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  color: #333;
+  cursor: pointer;
+}
+
+.sorting-options select:focus {
+  border-color: #5c9cff;
+  outline: none;
+}
+
+.sorting-options select option {
+  font-size: 1rem;
+  color: #333;
+}

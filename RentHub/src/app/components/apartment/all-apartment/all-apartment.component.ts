@@ -84,4 +84,33 @@ export class AllApartmentComponent implements OnInit {
       console.log(err)
     })
   }
+
+  onSortChange(evt: any) {
+    var sortBy = evt.target.value
+    switch (sortBy) {
+      case 'nameAsc':
+        this.apartData.sort((a: any, b: any) => a.apartName.localeCompare(b.apartName));
+        break;
+      case 'nameAsc':
+        this.apartData.sort((a: any, b: any) => b.apartName.localeCompare(a.apartName))
+        break;
+      case 'rentAsc':
+        this.apartData.sort((a: any, b: any) => a.expectedRent - b.expectedRent);
+        break;
+      case 'rentAsc':
+        this.apartData.sort((a: any, b: any) => a.expectedRent - b.expectedRent);
+        break;
+      case 'rentDesc':
+        this.apartData.sort((a: any, b: any) => b.expectedRent - a.expectedRent);
+        break;
+      case 'locationAsc':
+        this.apartData.sort((a: any, b: any) => a.apartLocation.localeCompare(b.apartLocation));
+        break;
+      case 'locationDesc':
+        this.apartData.sort((a: any, b: any) => b.apartLocation.localeCompare(a.apartLocation));
+        break;
+      case 'none':
+        break;
+    }
+  }
 }
