@@ -17,7 +17,8 @@
       <!-- Action Buttons -->
       <div class="apartment-actions">
         <button (click)="viewDetails(item.id)" class="view-btn">View</button>
-        <!-- <button (click)="markAsFavorite(item.id)" class="favorite-btn">Favorite</button> -->
+        <button *ngIf="!favouritedApart.includes(item.id)" (click)="markAsFavorite(item.id)" class="favorite-btn">Like</button>
+        <button *ngIf="isAuthenticated && favouritedApart.includes(item.id)" (click)="removeAsFavorite(item.id)" class="favorite-btn">Unlike</button>
       </div>
     </div>
   </ng-container>

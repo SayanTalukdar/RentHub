@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment'
 
 @Injectable({
@@ -20,12 +20,12 @@ export class UserService {
     return this.http.post(`${this.baseUrl}UserModel/signup`, data)
   }
 
-  loginUser(userData : any) {
+  loginUser(userData: any) {
     const data: any = {
       email: userData.email,
       password: userData.password
     }
-    return this.http.post(`${this.baseUrl}UserModel/signin`,data);
+    return this.http.post(`${this.baseUrl}UserModel/signin`, data);
   }
 
   setData(data: Array<String>) {
@@ -44,11 +44,12 @@ export class UserService {
     }
   }
 
-    getUserId(): string{
+  getUserId(): string {
     return JSON.parse(localStorage.getItem("data") || '').userId;
   }
 
   getEmail(): string {
     return JSON.parse(localStorage.getItem("data") || '').email;
   }
+  
 }

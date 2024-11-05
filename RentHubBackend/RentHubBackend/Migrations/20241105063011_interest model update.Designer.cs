@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentHubBackend.Context;
 
 namespace RentHubBackend.Migrations
 {
     [DbContext(typeof(RentHubBackendContext))]
-    partial class RentHubBackendContextModelSnapshot : ModelSnapshot
+    [Migration("20241105063011_interest model update")]
+    partial class interestmodelupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -334,18 +336,21 @@ namespace RentHubBackend.Migrations
                     b.Property<int>("ApartmentId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ApartmentModelId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsFavorite")
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserModelId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserModelId");
+                    b.HasIndex("ApartmentModelId");
 
                     b.ToTable("FavouriteModel");
                 });
@@ -434,9 +439,9 @@ namespace RentHubBackend.Migrations
 
             modelBuilder.Entity("RentHubBackend.Models.FavouriteModel", b =>
                 {
-                    b.HasOne("RentHubBackend.Models.UserModel", null)
+                    b.HasOne("RentHubBackend.Models.ApartmentModel", null)
                         .WithMany("Favourites")
-                        .HasForeignKey("UserModelId");
+                        .HasForeignKey("ApartmentModelId");
                 });
 #pragma warning restore 612, 618
         }

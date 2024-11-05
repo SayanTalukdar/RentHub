@@ -94,6 +94,7 @@ namespace RentHubBackend
             services.AddScoped<ISigninService , SigninService>();
             services.AddScoped<IApartmentRepository, ApartmentRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<IFavouriteRepository, FavouriteRepository>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

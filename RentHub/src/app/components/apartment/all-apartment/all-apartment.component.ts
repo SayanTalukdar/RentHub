@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApartmentService } from 'src/app/service/apartment/apartment.service';
+import { FavouriteService } from 'src/app/service/user/favourite.service';
+import { UserService } from 'src/app/service/user/user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,6 +13,8 @@ import { environment } from 'src/environments/environment';
 export class AllApartmentComponent implements OnInit {
 
   apartData: any = []
+  isAuthenticated = false;
+  favouritedApart: number[] = [];
 
   ngOnInit(): void {
     this.apartmentService.getAll().subscribe((res: any) => {
@@ -20,10 +24,16 @@ export class AllApartmentComponent implements OnInit {
     }, (err: any) => {
       console.log(err)
     })
+    this.isAuthenticated = this.userService.isAuthenticated();
+    if (this.isAuthenticated) {
+      this.getAllFavourites()
+    }
   }
 
   constructor(private apartmentService: ApartmentService,
     private router: Router,
+    private userService: UserService,
+    private favouriteService: FavouriteService
   ) { }
 
   viewDetails(id: number) {
@@ -37,5 +47,41 @@ export class AllApartmentComponent implements OnInit {
     else {
       return "No Receipt";
     }
+  }
+
+  getAllFavourites() {
+    this.favouriteService.getAllFavourites().subscribe((res: any) => {
+      this.favouritedApart = [];
+      if (res.length > 0) {
+        res.forEach((element: any) => {
+          this.favouritedApart.push(element["apartmentId"])
+        });
+      }
+    }, (err: any) => {
+      console.log(err)
+    })
+  }
+
+  markAsFavorite(id: number) {
+    if (this.isAuthenticated) {
+      this.favouriteService.markFavourite(id).subscribe((res: any) => {
+        console.log(res)
+        if (res.message == "Success") {
+          this.getAllFavourites();
+        }
+      }, (err: any) => {
+        console.log(err)
+      })
+    } else {
+      this.router.navigate(['user/login']);
+    }
+  }
+
+  removeAsFavorite(id: number) {
+    this.favouriteService.removeFavaourite(id).subscribe((res: any) => {
+      this.getAllFavourites();
+    }, (err: any) => {
+      console.log(err)
+    })
   }
 }

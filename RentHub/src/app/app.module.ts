@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { UploadComponent } from './components/apartment/new-apartment/upload/upload.component';
 import { AllUserApartmentComponent } from './components/apartment/all-user-apartment/all-user-apartment.component';
+import { CommentsService } from './service/apartment/comments.service';
+import { FavouriteService } from './service/user/favourite.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { AllUserApartmentComponent } from './components/apartment/all-user-apart
   ],
   providers: [
     ApartmentService,
-    UserService
+    UserService,
+    CommentsService,
+    FavouriteService
   ],
   bootstrap: [AppComponent]
 })

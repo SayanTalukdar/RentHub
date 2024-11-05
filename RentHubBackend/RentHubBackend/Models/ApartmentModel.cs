@@ -43,6 +43,7 @@ namespace RentHubBackend.Models
 
         public ICollection<CommentsModel> Comments { get; set; }
 
+
         public string? ApartmentImagePath { get; set; }
 
         [DataType(DataType.Date)]

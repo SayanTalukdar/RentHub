@@ -22,6 +22,8 @@ namespace RentHubBackend.Context
 
         public DbSet<CommentsModel> CommentsModel { get; set; }
 
+        public DbSet<FavouriteModel> FavouriteModel { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

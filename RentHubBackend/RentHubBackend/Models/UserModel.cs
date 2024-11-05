@@ -25,5 +25,7 @@ namespace RentHubBackend.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public ICollection<FavouriteModel> Favourites { get; set; }
+
     }
 }

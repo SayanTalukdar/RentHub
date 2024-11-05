@@ -22,7 +22,6 @@ namespace RentHubBackend.Repository
 
         public async Task<int> CreateData(ApartmentModel dataModel)
         {
-            //string fileName = UploadFile(dataModel);
 
             var data = new ApartmentModel
             {
@@ -50,34 +49,5 @@ namespace RentHubBackend.Repository
             var result = await Context.SaveChangesAsync();
             return result;
         }
-
-        /*private string UploadFile(ReimbursmentModel dataModel)
-        {
-            string fileName = null;
-            if (dataModel.ReceiptImage != null)
-            {
-
-                if (!Directory.Exists(_webHostEnvironment.WebRootPath+ "\\Upload\\"))
-                {
-                    Directory.CreateDirectory(_webHostEnvironment.WebRootPath + "\\Upload\\");
-                }
-
-                using (FileStream fileStream = System.IO.File.Create(_webHostEnvironment.WebRootPath + "\\Upload\\" + dataModel.ReceiptImage.FileName))
-                {
-                    dataModel.ReceiptImage.CopyTo(fileStream);
-                    fileStream.Flush();
-                    return "\\Upload\\" + dataModel.ReceiptImage.FileName;
-                }
-
-*//*                string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, "ReImbursmentPortalBackend/Data/Images/");
-                fileName = Guid.NewGuid().ToString() + dataModel.ReceiptImage.FileName;
-                string filePath = Path.Combine(uploadDir, fileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    dataModel.ReceiptImage.CopyTo(fileStream);
-                }*//*
-            }
-            return fileName;
-        }*/
     }
 }
